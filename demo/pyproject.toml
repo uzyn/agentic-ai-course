@@ -1,0 +1,28 @@
+[project]
+name = "agentic-ai-course"
+version = "0.1.0"
+description = "Jupyter notebooks demonstrating various agentic AI frameworks for NUS-ISS Architecting Agentic AI Solutions course."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "anthropic",
+  "autogen-agentchat",
+  "autogen-ext[openai]",
+  "crewai",
+  "crewai-tools",
+  "ipykernel",
+  "jupyterlab",
+  "langgraph",
+  "mcp",
+  "openai",
+  "openai-agents",
+  "python-dotenv",
+  "requests",
+  "smolagents",
+  "pyyaml",
+  "python-telegram-bot",
+  "textblob",
+  "vaderSentiment",
+  "ipywidgets>=8.1.7",
+  "nest-asyncio>=1.6.0",
+]
