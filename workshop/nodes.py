@@ -14,11 +14,8 @@ def human_node(state: State) -> dict:
         "content": f"You: {user_input}"
     }
 
-    messages = state.get("messages", []).copy()
-    messages.append(human_message)
-
     return {
-        "messages": messages,
+        "messages": [human_message],  # Return only the new message
         "volley_msg_left": 5
     }
 
@@ -77,6 +74,7 @@ def summarizer_node(state: State) -> dict:
     """
     print("\n=== CONVERSATION ENDING ===\n")
 
+    # Generate and print summary
     summary = summarizer(state)
     print(summary)
     print("\nThank you! Come back to kopitiam anytime lah!")
