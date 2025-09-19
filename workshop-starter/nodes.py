@@ -8,16 +8,8 @@ def human_node(state: State) -> dict:
     Human input node - gets user input and sets volley count.
     """
     user_input = input("\nYou: ").strip()
-
-    human_message = {
-        "role": "user",
-        "content": f"You: {user_input}"
-    }
-
-    return {
-        "messages": [human_message],  # Return only the new message
-        "volley_msg_left": 5
-    }
+    
+    # TODO: Return
 
 
 def check_exit_condition(state: State) -> Literal["summarizer", "coordinator"]:
@@ -25,14 +17,8 @@ def check_exit_condition(state: State) -> Literal["summarizer", "coordinator"]:
     Check if user typed 'exit' to end conversation.
     """
     messages = state.get("messages", [])
-    if messages:
-        last_message = messages[-1]
-        content = last_message.get("content", "")
-
-        if "exit" in content.lower():
-            return "summarizer"
-
-    return "coordinator"
+    
+    # TODO: Return based on condition
 
 
 def coordinator_routing(state: State) -> Literal["participant", "human"]:
@@ -41,10 +27,7 @@ def coordinator_routing(state: State) -> Literal["participant", "human"]:
     """
     volley_left = state.get("volley_msg_left", 0)
 
-    if volley_left > 0:
-        return "participant"
-    else:
-        return "human"
+    # TODO: Return based on condition
 
 
 def participant_node(state: State) -> dict:
