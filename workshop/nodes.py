@@ -14,8 +14,12 @@ def human_node(state: State) -> dict:
         "content": f"You: {user_input}"
     }
 
+    # Copy existing messages and append the new one
+    messages = state.get("messages", []).copy()
+    messages.append(human_message)
+
     return {
-        "messages": [human_message],  # Return only the new message
+        "messages": messages,
         "volley_msg_left": 5
     }
 
