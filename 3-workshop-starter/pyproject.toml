@@ -11,7 +11,6 @@ dependencies = [
     "langchain>=0.3.27",
     "langchain-openai>=0.2.14",
     "langgraph>=0.6.6",
-    "lxml>=6.0.1",
     "python-dotenv>=1.1.1",
     "pytz>=2025.2",
 ]
