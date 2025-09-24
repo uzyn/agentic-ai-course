@@ -25,4 +25,5 @@ dependencies = [
   "vaderSentiment",
   "ipywidgets>=8.1.7",
   "nest-asyncio>=1.6.0",
+  "grandalf>=0.8",
 ]
