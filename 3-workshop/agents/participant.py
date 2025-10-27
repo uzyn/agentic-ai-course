@@ -79,8 +79,20 @@ def participant(persona_id, state) -> dict:
     # Get recent conversation for context
     messages = state.get("messages", [])
     conversation_text = ""
-    for msg in messages: 
+    for msg in messages:
         conversation_text += f"{msg.get('content', '')}\n"
+
+    # Tool descriptions mapping
+    tool_descriptions = {
+        "time": "Returns current time in Singapore",
+        "weather": "Returns current weather in Singapore",
+        "news": "Returns latest Singapore news"
+    }
+
+    # Build available actions list based on persona's tools
+    available_actions = ""
+    for tool in persona['tools']:
+        available_actions += f"\n\n{tool}:\n{tool_descriptions[tool]}"
 
     # System prompt for ReAct
     system_prompt = f"""You are {persona['name']}, {persona['age']} years old.
@@ -97,16 +109,11 @@ Use Thought to describe your thoughts about the conversation.
 Use Action to run one of the actions available to you.
 Observation will be the result of running those actions.
 
-Your available actions are:
+Possible actions are:
 
-time:
-Returns current time in Singapore
+{available_actions}
 
-weather:
-Returns current weather in Singapore
-
-news:
-Returns latest Singapore news
+You only have access to the tools/actions listed above. Do not call tools that you do not have access to.
 
 ------
 
