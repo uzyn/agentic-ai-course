@@ -1,0 +1,22 @@
+{
+  "name": "sgweather-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Singapore weather forecast from data.gov.sg",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "npx @modelcontextprotocol/inspector node server.js"
+  },
+  "keywords": [
+    "mcp",
+    "weather",
+    "singapore",
+    "data.gov.sg"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "node-fetch": "^3.3.2"
+  }
+}
