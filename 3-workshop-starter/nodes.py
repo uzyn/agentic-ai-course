@@ -8,6 +8,14 @@ def human_node(state: State) -> dict:
     Human input node - gets user input and sets volley count.
     """
     user_input = input("\nYou: ").strip()
+
+    human_message = {
+        # TODO: Define message
+    }
+
+    # Copy existing messages and append the new one
+    messages = state.get("messages", []).copy()
+    messages.append(human_message)
     
     # TODO: Return
 
