@@ -3,7 +3,7 @@ from langchain.schema import HumanMessage, SystemMessage
 from utils import debug
 
 
-def coordinator(state):
+def orchestrator(state):
     """
     Select next speaker based on conversation context.
     Manages volley control and updates state accordingly.
@@ -17,10 +17,10 @@ def coordinator(state):
 
     debug(state)
     volley_left = state.get("volley_msg_left", 0)
-    debug(f"Volley messages left: {volley_left}", "COORDINATOR")
+    debug(f"Volley messages left: {volley_left}", "ORCHESTRATOR")
 
     if volley_left <= 0:
-        debug("No volleys left, returning to human", "COORDINATOR")
+        debug("No volleys left, returning to human", "ORCHESTRATOR")
         return {
             "next_speaker": "human",
             "volley_msg_left": 0
@@ -57,7 +57,7 @@ def coordinator(state):
 
 Who should speak next to keep this kopitiam conversation lively?"""
 
-    debug("Analyzing conversation context...", "COORDINATOR")
+    debug("Analyzing conversation context...", "ORCHESTRATOR")
 
     # Call LLM
     try:
@@ -73,7 +73,7 @@ Who should speak next to keep this kopitiam conversation lively?"""
             selected_speaker = " ".join(str(item) for item in response.content).strip().lower()
         else:
             selected_speaker = str(response.content).strip().lower()
-        debug(f"LLM selected: {selected_speaker}", "COORDINATOR")
+        debug(f"LLM selected: {selected_speaker}", "ORCHESTRATOR")
 
         # Validate speaker
         valid_speakers = ["ah_seng", "mei_qi", "bala", "dr_tan"]
@@ -81,16 +81,16 @@ Who should speak next to keep this kopitiam conversation lively?"""
             # Fallback to round-robin if invalid
             import random
             selected_speaker = random.choice(valid_speakers)
-            debug(f"Invalid speaker, fallback to: {selected_speaker}", "COORDINATOR")
+            debug(f"Invalid speaker, fallback to: {selected_speaker}", "ORCHESTRATOR")
 
     except Exception as e:
         # Fallback selection if LLM fails
         import random
         valid_speakers = ["ah_seng", "mei_qi", "bala", "dr_tan"]
         selected_speaker = random.choice(valid_speakers)
-        debug(f"LLM error, random selection: {selected_speaker}", "COORDINATOR")
+        debug(f"LLM error, random selection: {selected_speaker}", "ORCHESTRATOR")
 
-    debug(f"Final selection: {selected_speaker} (volley {volley_left} -> {volley_left - 1})", "COORDINATOR")
+    debug(f"Final selection: {selected_speaker} (volley {volley_left} -> {volley_left - 1})", "ORCHESTRATOR")
 
     # Return only the updates (LangGraph will merge with existing state)
     return {
