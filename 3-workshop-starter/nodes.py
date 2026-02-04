@@ -1,6 +1,6 @@
 from typing import Literal
 from state import State
-from agents import coordinator, participant, summarizer
+from agents import orchestrator, participant, summarizer
 
 
 def human_node(state: State) -> dict:
@@ -13,25 +13,21 @@ def human_node(state: State) -> dict:
         # TODO: Define message
     }
 
-    # Copy existing messages and append the new one
-    messages = state.get("messages", []).copy()
-    messages.append(human_message)
-    
     # TODO: Return
 
 
-def check_exit_condition(state: State) -> Literal["summarizer", "coordinator"]:
+def check_exit_condition(state: State) -> Literal["summarizer", "orchestrator"]:
     """
     Check if user typed 'exit' to end conversation.
     """
     messages = state.get("messages", [])
-    
+
     # TODO: Return based on condition
 
 
-def coordinator_routing(state: State) -> Literal["participant", "human"]:
+def orchestrator_routing(state: State) -> Literal["participant", "human"]:
     """
-    Route from coordinator based on volley count.
+    Route from orchestrator based on volley count.
     """
     volley_left = state.get("volley_msg_left", 0)
 
@@ -49,12 +45,9 @@ def participant_node(state: State) -> dict:
 
     # Print and return messages
     if result and "messages" in result:
-        messages = state.get("messages", []).copy()
         for msg in result["messages"]:
             print(msg.get("content", ""))
-            messages.append(msg)
-
-        return {"messages": messages}
+        return {"messages": result["messages"]}
 
     return {}
 

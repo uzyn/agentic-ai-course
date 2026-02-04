@@ -2,11 +2,11 @@ from dotenv import load_dotenv
 from langgraph.graph import StateGraph, START, END
 
 from state import State
-from agents import coordinator
+from agents import orchestrator
 from nodes import (
     human_node,
     check_exit_condition,
-    coordinator_routing,
+    orchestrator_routing,
     participant_node,
     summarizer_node
 )
