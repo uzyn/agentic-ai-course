@@ -14,7 +14,8 @@ Each demo notebook requires specific API keys. Here's a complete list:
 | Notebook | Required Environment Variables |
 |----------|-------------------------------|
 | d1-openai-agents-demo.ipynb | `OPENAI_API_KEY` |
-| d2-mcp-demo.ipynb | `ANTHROPIC_API_KEY` |
+| d2l-mcp-demo-stdio.ipynb | `ANTHROPIC_API_KEY` |
+| d2r-mcp-demo-remote.ipynb | `ANTHROPIC_API_KEY` |
 | d3-smolagents-demo.ipynb | `OPENAI_API_KEY` |
 | d4-autogen-demo.ipynb | `OPENAI_API_KEY` |
 | d5-crewai-demo.ipynb | `OPENAI_API_KEY`, `SERPER_API_KEY` (optional) |
