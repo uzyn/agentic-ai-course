@@ -47,6 +47,7 @@ Please provide a summary of this kopitiam conversation."""
     try:
         # Call LLM
         llm = ChatOpenAI(model="gpt-5-nano", temperature=1)
+        # llm = ChatOpenAI(model="gpt-5-nano", temperature=1, base_url="http://127.0.0.1:1337/v1")
 
         response = llm.invoke([
             SystemMessage(content=system_prompt),

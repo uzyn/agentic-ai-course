@@ -147,6 +147,8 @@ IMPORTANT:
 
         try:
             llm = ChatOpenAI(model="gpt-5-mini", temperature=1)
+            # llm = ChatOpenAI(model="gpt-5-mini", temperature=1, base_url=os.getenv("https://127.0.0.1:1337/v1"))
+
             response = llm.invoke([
                 SystemMessage(content=system_prompt),
                 HumanMessage(content=user_prompt)
