@@ -49,10 +49,10 @@ LOCAL_API_URL=http://127.0.0.1:1337/v1
 ### 4. Open the notebook
 
 ```bash
-uv run jupyter notebook workshop.ipynb
+uv run --with jupyter jupyter lab
 ```
 
-Then select the appropriate client option in the setup cell (OpenAI or local server).
+This starts JupyterLab with access to the project's virtual environment. Open `workshop.ipynb` from the file browser, then select the appropriate client option in the setup cell (OpenAI or local server).
 
 ## Workshop Contents
 
