@@ -21,8 +21,14 @@ def check_exit_condition(state: State) -> Literal["summarizer", "orchestrator"]:
     Check if user typed 'exit' to end conversation.
     """
     messages = state.get("messages", [])
+    if messages:
+        last_message = messages[-1]
+        content = last_message.get("content", "")
 
-    # TODO: Return based on condition
+        if "exit" in content.lower():
+            return "summarizer"
+
+    return "orchestrator"
 
 
 def orchestrator_routing(state: State) -> Literal["participant", "human"]:
