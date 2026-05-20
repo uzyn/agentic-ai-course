@@ -14,15 +14,14 @@ Each demo notebook requires specific API keys. Here's a complete list:
 | Notebook | Required Environment Variables |
 |----------|-------------------------------|
 | d1-openai-agents-demo.ipynb | `OPENAI_API_KEY` |
-| d2l-mcp-demo-stdio.ipynb | `ANTHROPIC_API_KEY` |
-| d2r-mcp-demo-remote.ipynb | `ANTHROPIC_API_KEY` |
+| d2l-mcp-demo-stdio.ipynb | `OPENAI_API_KEY` |
+| d2r-mcp-demo-remote.ipynb | `OPENAI_API_KEY` |
 | d3-smolagents-demo.ipynb | `OPENAI_API_KEY` |
 | d4-autogen-demo.ipynb | `OPENAI_API_KEY` |
 | d5-crewai-demo.ipynb | `OPENAI_API_KEY`, `SERPER_API_KEY` (optional) |
 | d6-langgraph-demo.ipynb | `OPENAI_API_KEY` |
 
 **Optional Environment Variables:**
-- `OPENWEATHER_API_KEY` - For real weather data in demos
 - `SERPER_API_KEY` - For web search in CrewAI demos
 - `TELEGRAM_BOT_TOKEN` - For Telegram integration in workshops
 
@@ -44,8 +43,7 @@ Each demo notebook requires specific API keys. Here's a complete list:
    # Copy environment template and edit with your keys
    cp .env.example .env
    # Edit .env file to add:
-   # - OPENAI_API_KEY (for OpenAI demos)
-   # - ANTHROPIC_API_KEY (for MCP and Anthropic demos)
+   # - OPENAI_API_KEY (for OpenAI demos, including MCP)
    ```
 
 4. **Start Jupyter:**
