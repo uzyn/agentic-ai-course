@@ -10,4 +10,4 @@ def debug(message, prefix="DEBUG"):
         prefix: Prefix for the debug message (default: "DEBUG")
     """
     if os.getenv("DEBUG", "false").lower() == "true":
-        print(f"    \033[2m[{prefix}] {message}\033[0m")
+        print(f"    \033[38;5;108m[{prefix}] {message}\033[0m")
