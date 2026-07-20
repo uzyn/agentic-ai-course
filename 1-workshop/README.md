@@ -59,8 +59,7 @@ This starts JupyterLab with access to the project's virtual environment. Open `w
 | Part | Topics |
 |------|--------|
 | Part 1 | Zero-shot, few-shot, role-based, and clear instruction prompting |
-| Part 2 | Chain-of-thought, step-by-step reasoning, output formatting |
-| Part 3 | System vs user prompts, temperature control |
+| Part 2 | Chain-of-thought, step-by-step reasoning, output formatting, system vs user prompts, temperature control |
 
 ## Assignment
 
