@@ -1,6 +1,6 @@
 # Prompt Engineering Workshop
 
-A hands-on workshop covering prompt engineering techniques — from basic zero-shot prompting to advanced tool use with Wikipedia and structured outputs.
+A hands-on workshop covering prompt engineering techniques — from basic zero-shot prompting to system prompts, temperature control, and structured outputs.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ brew install uv
 uv sync
 ```
 
-This installs all required packages (`openai`, `python-dotenv`, `wikipedia`, `ipykernel`) into an isolated virtual environment.
+This installs all required packages (`openai`, `python-dotenv`, `ipykernel`) into an isolated virtual environment.
 
 ### 3. Configure environment variables
 
@@ -60,7 +60,7 @@ This starts JupyterLab with access to the project's virtual environment. Open `w
 |------|--------|
 | Part 1 | Zero-shot, few-shot, role-based, and clear instruction prompting |
 | Part 2 | Chain-of-thought, step-by-step reasoning, output formatting |
-| Part 3 | System vs user prompts, temperature control, Wikipedia retrieval, combining techniques |
+| Part 3 | System vs user prompts, temperature control |
 
 ## Assignment
 
